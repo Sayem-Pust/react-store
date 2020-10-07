@@ -45,7 +45,7 @@ export default class Store extends Component {
     return (
       <div>
         <div className="row">
-          <div className="col-md-6">
+          <div className="col-md-6 text-center">
             <p>Sort by name:</p>
             <button
               className="btn btn-outline-secondary"
@@ -60,8 +60,8 @@ export default class Store extends Component {
               Desc
             </button>
           </div>
-          <div className="col-md-6" style={{marginTop: '15px'}}>
-            <SearchBox searchChange={this.onSearchChange}/>
+          <div className="col-md-6 text-center" style={{ marginTop: "15px" }}>
+            <SearchBox searchChange={this.onSearchChange} />
           </div>
         </div>
         <div className="row" style={{ marginTop: "25px" }}>
