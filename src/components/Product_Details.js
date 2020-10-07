@@ -27,7 +27,7 @@ export default class Product_Details extends Component {
 
   render() {
       const productID = this.props.match.params.productID;
-      const matchId = this.state.products.map((item, i) =>  {
+      const matchId = this.state.products.map((item, i) => {
           if (item._id === productID ) {
               return (
                 <div key={i} className="row">
@@ -73,7 +73,10 @@ export default class Product_Details extends Component {
                   </div>
                 </div>
               );
-          } 
+          } else{
+            return null
+          }
+          
       })
     return (
       <div className="row">
