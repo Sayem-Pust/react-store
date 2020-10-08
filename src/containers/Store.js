@@ -37,10 +37,28 @@ export default class Store extends Component {
   };
 
   render() {
-    console.log(this.props.click);
+    // console.log(this.state.searchfield);
     const sortedList = this.state.products.sort((a, b) => {
       const isReversed = this.state.sortType === "asc" ? 1 : -1;
       return isReversed * a.title.localeCompare(b.title);
+    });
+    console.log(sortedList);
+    console.log(this.state.searchfield);
+    const filterProduct = sortedList.filter(products => {
+      return products.title.toLowerCase().includes(this.state.searchfield.toLowerCase());
+    })
+    console.log(filterProduct)
+    const renderSort = filterProduct.map((product, i) => {
+      return (
+        <Product
+          key={i}
+          image={product.picture}
+          price={product.price}
+          title={product.title}
+          id={product._id}
+          click={this.props.click}
+        />
+      );
     });
     return (
       <div>
@@ -65,18 +83,7 @@ export default class Store extends Component {
           </div>
         </div>
         <div className="row" style={{ marginTop: "25px" }}>
-          {sortedList.map((product, i) => {
-            return (
-              <Product
-                key={i}
-                image={product.picture}
-                price={product.price}
-                title={product.title}
-                id={product._id}
-                click={this.props.click}
-              />
-            );
-          })}
+          {renderSort}
           {/* <Product />
         <Product />
         <Product />
