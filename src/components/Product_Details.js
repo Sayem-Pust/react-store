@@ -38,11 +38,8 @@ export default class Product_Details extends Component {
                         <h6 style={{ textAlign: "center" }}>
                           <strong>{item.title}</strong>
                         </h6>
-                        {/* <h6 style={{ textAlign: "center" }}>
-                <strong>products name</strong>
-              </h6> */}
                         <hr />
-                        <h5>
+                        <h5 style={{ textAlign: "center" }}> Price: 
                           <strong>${item.price}</strong>
                         </h5>
                       </div>
