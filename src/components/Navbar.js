@@ -1,6 +1,7 @@
 import React from "react";
 import "./Navbar.css";
 import Cart from "../cart.png";
+import {Link} from 'react-router-dom'
 
 const Navbar = ({ click }) => {
   return (
@@ -34,9 +35,11 @@ const Navbar = ({ click }) => {
               Login
             </a>
 
-            <a href="/">
+            {/* <a href="/"></a> */}
+            <Link to="/cart">
               <img id="cart-icon" src={Cart} alt="cart" />
-            </a>
+            </Link>
+            {/* <p id="cart-total">{click}</p> */}
             <p id="cart-total">{click}</p>
           </div>
         </div>

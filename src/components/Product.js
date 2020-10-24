@@ -2,7 +2,7 @@ import React from 'react'
 import './Product.css'
 import {Link} from 'react-router-dom'
 
-const Product = ({ title, image, price, id, click }) => {
+const Product = ({ title, image, price, id, handleCartProduct }) => {
   // const CartClick = (click) => {
   //   click=+1
   //   console.log(click)
@@ -16,7 +16,11 @@ const Product = ({ title, image, price, id, click }) => {
           <strong>{title}</strong>
         </h6>
         <hr />
-        <button className="btn btn-outline-secondary btn-add update-cart ">
+        <button
+          className="btn btn-outline-secondary btn-add update-cart "
+          onClick={handleCartProduct}
+
+        >
           Add To Cart
         </button>
         {/* <a href="/" className="btn btn-outline-success">

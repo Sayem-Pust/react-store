@@ -36,18 +36,16 @@ export default class Store extends Component {
     this.setState({ searchfield: event.target.value });
   };
 
+
+
   render() {
-    // console.log(this.state.searchfield);
     const sortedList = this.state.products.sort((a, b) => {
       const isReversed = this.state.sortType === "asc" ? 1 : -1;
       return isReversed * a.title.localeCompare(b.title);
     });
-    console.log(sortedList);
-    console.log(this.state.searchfield);
     const filterProduct = sortedList.filter(products => {
       return products.title.toLowerCase().includes(this.state.searchfield.toLowerCase());
     })
-    console.log(filterProduct)
     const renderSort = filterProduct.map((product, i) => {
       return (
         <Product
@@ -56,7 +54,7 @@ export default class Store extends Component {
           price={product.price}
           title={product.title}
           id={product._id}
-          click={this.props.click}
+          handleCartProduct={() => this.props.handleCartProduct(product._id, product.price)}
         />
       );
     });
